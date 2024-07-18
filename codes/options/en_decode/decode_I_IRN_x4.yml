@@ -1,0 +1,33 @@
+name: Decode
+model: I_IRN
+distortion: sr
+scale: 4
+crop_border: ~  # crop border when evaluation. If None(~), crop the scale pixels
+gpu_ids: [0]
+
+datasets:
+  test_1:  # the 1st test dataset
+    name: Decode_HRimage
+    mode: LQ
+#    dataroot_GT: datasets/test2/test
+    dataroot_LQ: ~ # ../results/Decode/Decode_LRimage path to test reference LR images, not necessary, if not provided, LR images will be generated in dataloader
+
+
+#### network
+network_G:
+  which_model_G:
+    subnet_type: DBNet
+  in_nc: 3
+  out_nc: 3
+  block_num: [8, 8]
+  scale: 4
+  init: xavier
+
+
+
+DNA_dictionary: './CodeBook/CodeBook.txt'
+DNA_path: './results/error/errorcomicindel/1.0'
+save_path: "./results/Error_correction_image/comicindel/1.0"
+#### path
+path:
+  pretrain_model_G: experiments/pretrained_models/encode_I_x4.pth

@@ -1,0 +1,27 @@
+name: Encode
+model: I_IRN
+distortion: sr
+scale: 4
+crop_border: ~  # crop border when evaluation. If None(~), crop the scale pixels
+gpu_ids: [0]
+
+datasets:
+  test_1:  # the 1st test dataset
+    name: encode
+    mode: LQ
+    dataroot_LQ: datasets/error_image/comic # The image path that needs to be encoded.
+
+#### network
+network_G:
+  which_model_G:
+    subnet_type: DBNet
+  in_nc: 3
+  out_nc: 3
+  block_num: [8, 8]
+  scale: 4
+  init: xavier
+
+
+#### path
+path:
+  pretrain_model_G: experiments/pretrained_models/encode_I_x4.pth
