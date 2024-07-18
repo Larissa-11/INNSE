@@ -1,0 +1,33 @@
+name: Decode
+model: V_IRN
+distortion: sr
+scale: 4
+crop_border: ~  # crop border when evaluation. If None(~), crop the scale pixels
+gpu_ids: [0]
+gop: 5
+datasets:
+  test_1:  # the 1st test dataset
+#    name: DecodeHR
+    mode: video_test
+##    dataroot_GT: datasets/test2/test
+#    dataroot_GT:  ./results/DecodeLR/calendar # path to test reference LR images, not necessary, if not provided, LR images will be generated in dataloader
+    N_frames: 1
+    padding: 'new_info'
+    pred_interval: -1
+
+#### network
+network_G:
+  which_model_G:
+    subnet_type: DBNet
+  in_nc: 3
+  out_nc: 3
+  block_num: [8, 8]
+  scale: 4
+  init: xavier
+
+DNA_dictionary: './CodeBook/CodeBook.txt'
+DNA_path: './evaluation/Mona Lisa'
+save_path: "../results/Decode/Decode_HR"
+#### path
+path:
+  pretrain_model_G: experiments/pretrained_models/encode_V_x4.pth
