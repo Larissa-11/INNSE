@@ -32,4 +32,4 @@ python encode.py -opt options/en_decode/encode_V_IRN_x4.yml
 python decode.py -opt options/en_decode/decode_V_IRN_x4.yml
 ```
 ## Acknowledgement
-Our project is heavily based on [Invertible-Image-Rescaling](https://github.com/pkuxmq/Invertible-Image-Rescaling) and [Video Rescaling Networks with Joint Optimization Strategies for Downscaling and Upscaling]([https://github.com/pkuxmq/Invertible-Image-Rescaling](https://github.com/ding3820/MIMO-VRN) as basic framework.
+Our project is heavily based on [Invertible-Image-Rescaling](https://github.com/pkuxmq/Invertible-Image-Rescaling) and [Video Rescaling Networks with Joint Optimization Strategies for Downscaling and Upscaling](https://github.com/ding3820/MIMO-VRN) as basic framework.
